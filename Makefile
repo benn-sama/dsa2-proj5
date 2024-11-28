@@ -1,7 +1,7 @@
-HEADERS = data-extraction.hpp
-TEST_SOURCES = ./tests/data-extraction-test.cpp
+HEADERS = data-extraction.hpp lcs-one.hpp
+TEST_SOURCES = ./tests/data-extraction-test.cpp ./tests/lcs-one-test.cpp
 TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
-MAIN_OBJECTS = data-extraction.o
+MAIN_OBJECTS = data-extraction.o lcs-one.o
 TEST_TARGETS = $(TEST_SOURCES:.cpp=.out)
 MAIN_TARGET = main_executable
 
@@ -12,7 +12,7 @@ CXXFLAGS = -std=c++11 -Wall -Wextra -I.
 
 all: $(TEST_TARGETS) $(MAIN_TARGET)
 
-$(TEST_TARGETS): %.out: %.o data-extraction.o
+$(TEST_TARGETS): %.out: %.o data-extraction.o lcs-one.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(MAIN_TARGET): $(MAIN_OBJECTS) data-extraction-test.o

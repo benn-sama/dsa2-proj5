@@ -17,13 +17,18 @@ void test1() {
   if (twoStringVector.size() != 2) {
     throw std::runtime_error("twoStringVector does not contain exactly 2 elements");
   }
+  std::cout << "Test 1: mockVector size check passed." << std::endl;
 
   if (twoStringVector[0] != "fdsasdfdsfsdsdssdasasfdsasdfsdssasadsfsfsdsfadsfsdassdsfasdsdasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsddsasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsdsasasdfdfsadfdsasasdfdsasdadsfsdassdsfasdsddsasdfsasasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssfdsasdfsdssasadsfsfsdsfadsfsdassdsfasdsdasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsddsasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsdsasasdfdfsadfdsasasdfdsasdadsfsdassdsfasdsddsasdfsasasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssfdsasdfsdssasadsfsfsdsfadsfsdassdsfasdsdasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsddsasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsdsasasdfdfsadfdsasasdfdsasdadsfsdassdsfasdsddsasdfsasasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssfdsasdfsdssasadsfsfsdsfadsfsdassdsfasdsdasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsds") {
     throw std::runtime_error("First line of twoStrings.txt does not match");
   }
+  std::cout << "Test 2: first string check passed." << std::endl;
+
   if (twoStringVector[1] != "adfdsasdfsdssasadsfsfsdsfadsfsdassdsfasdsdasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsddsasdfsadfdsasdfsdssaasdfdsasdfdsadfdsasdfdsfsdsdssdasasadsfsdsdsfadsfsdassdsfasdsdsasasdfdfsadfdsasasdfdsasdsasdfasdfdsasdasdfdsasdfdsadfdsasdfsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfdsdsfasdsddsasdfsadfdsasdfsdssaasdfd") {
     throw std::runtime_error("Second line of twoStrings.txt does not match");
   }
+  std::cout << "Test 3: second string check passed." << std::endl;
+  std::cout << "test1(): passed" << std::endl << std::endl;
 }
 
 void test2() {
@@ -53,17 +58,20 @@ void test2() {
     throw std::runtime_error("MultiStringVector and MockVector do not have the same size\nMultiStringVector Size: " + std::to_string(multiStringVector.size())
                             + "\nMockVector Size: " + std::to_string(mockVector.size()));
   }
+  std::cout << "Test 4: mock and multi vector size check passed." << std::endl;
 
   for (int i = 0; i < int(multiStringVector.size()); ++i) {
     if (multiStringVector[i] != mockVector[i]) {
       throw std::runtime_error("Multi and Mock vectors do not have the same value at index " + std::to_string(i));
     }
   }
+  std::cout << "Test 5: mock and multi vector string element values passed." << std::endl;
 
   // manual testing
   if (multiStringVector.size() != 8) {
     throw std::runtime_error("MultiStringVector size does not equal 8\nsize: " + std::to_string(int(multiStringVector.size())));
   }
+  std::cout << "Test 6: mock and multi vector manual size check passed." << std::endl;
 
   for (int i = 0; i < int(multiStringVector.size()); ++i) {
     if (multiStringVector[0] != "asdfdsasdfdsadfdsasdf") {
@@ -91,13 +99,15 @@ void test2() {
       throw std::runtime_error("MultStringVector does not equal to the eigth line of the file\n[" + std::to_string(i) + "]: " + multiStringVector[i]);
     }
   }
+  std::cout << "Test 7: mock and multi vector manual string element values passed." << std::endl;
+    std::cout << "test2(): passed" << std::endl << std::endl;
 }
 
 int main() {
   try {
     test1();
     test2();
-    std::cout << "All tests passed!" << std::endl;
+    std::cout << "All tests passed for data-extraction.hpp!" << std::endl << std::endl;
   } 
   catch (const std::exception &e) {
     std::cerr << e.what() << std::endl;
