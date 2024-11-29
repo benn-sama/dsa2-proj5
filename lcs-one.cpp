@@ -24,12 +24,36 @@ LCSOne::LCSOne(std::string stringOne, std::string stringTwo) {
   }
 }
 
-void LCSOne::LCSCompute() {
+std::string LCSOne::LCSCompute() { // initializes matrix and algorithm for LCS
+  this->initializeCArray();
 
+  return LCS(row, column);
 }
 
-void LCSOne::LCS(int i, int j) {
+// algorithm to find LCS w/ no b-array
+std::string LCSOne::LCS(int i, int j) {
+  std::string lcsString;
+  std::vector<char> s;
 
+  while (i > 0 && j > 0) {
+    if (stringOne[i - 1] == stringTwo[j - 1]) {
+      s.push_back(stringOne[i - 1]);
+      --i;
+      --j;
+    }
+    else if (cArray[i - 1][j] >= cArray[i][j - 1]) {
+      --i;
+    }
+    else {
+      --j;
+    } 
+  }
+  while (!s.empty()) {
+    lcsString += s.back();
+    s.pop_back();
+  }
+
+  return lcsString;
 }
 
 void LCSOne::initializeCArray() { // fills in the matrix corresponding to the algorithm
@@ -40,7 +64,7 @@ void LCSOne::initializeCArray() { // fills in the matrix corresponding to the al
 
   for (int i = 1; i < row; ++i) {
     for (int j = 1; j < column; ++j) {
-      if (stringOne[i] == stringTwo[j]) {
+      if (stringOne[i - 1] == stringTwo[j - 1]) {
         cArray[i][j] = cArray[i - 1][j - 1] + 1;
       }
       else {
@@ -88,4 +112,13 @@ int LCSOne::getRowSize() {
 
 int LCSOne::getColumnSize() {
   return column;
+}
+
+void LCSOne::printAll() {
+  for (int i = 0; i < row; ++i) {
+    for (int j = 0; j < column; ++j) {
+      std::cout << cArray[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
 }

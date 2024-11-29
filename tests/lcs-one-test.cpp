@@ -23,6 +23,7 @@ void test1() {
     }
   }
   std::cout << "Test 3:All index values are zero check passed." << std::endl;
+  std::cout << "test1(): passed" << std::endl << std::endl;
 }
 
 // for setting up the test
@@ -40,7 +41,7 @@ void lcsAlgorithm(int** mockArr, int row, int column, std::string stringOne, std
   // actual algorithm
   for (int i = 1; i < row; ++i) {
     for (int j = 1; j < column; ++j) {
-      if (stringOne[i] == stringTwo[j]) {
+      if (stringOne[i - 1] == stringTwo[j - 1]) {
         mockArr[i][j] = mockArr[i - 1][j - 1] + 1;
       }
       else {
@@ -53,8 +54,6 @@ void lcsAlgorithm(int** mockArr, int row, int column, std::string stringOne, std
       }
     }
   }
-
-  std::cout << "test1(): passed" << std::endl << std::endl;
 }
 
 // automatic testing
@@ -138,11 +137,33 @@ void test3() {
   std::cout << "test3(): passed" << std::endl << std::endl;
 }
 
+void test4() {
+  std::string stringOne = "abcdbab";
+  std::string stringTwo = "bdcaba";
+  LCSOne lcs(stringOne, stringTwo);
+
+  lcs.initializeCArray();
+  lcs.LCS(int(stringOne.size()), int(stringTwo.size()));
+
+  try {
+    if (lcs.LCSCompute() != "bcba") {
+      std::runtime_error("lcs does not match bcba");
+    }
+  }
+  catch (const std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
+
+  std::cout << "Test 11: LCSCompute return check passed." << std::endl;
+  std::cout << "test4(): passed" << std::endl << std::endl;
+}
+
 int main() {
   try {
     test1();
     test2();
     test3();
+    test4();
     std::cout << "All tests passed for lcs-one.hpp!" << std::endl << std::endl;
   }
   catch (const std::exception &e) {

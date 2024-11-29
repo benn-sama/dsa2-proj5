@@ -15,8 +15,11 @@ all: $(TEST_TARGETS) $(MAIN_TARGET)
 $(TEST_TARGETS): %.out: %.o data-extraction.o lcs-one.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(MAIN_TARGET): $(MAIN_OBJECTS) data-extraction-test.o
+$(MAIN_TARGET): $(MAIN_OBJECTS) ./tests/data-extraction-test.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+./tests/%.o: ./tests/%.cpp $(HEADERS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@

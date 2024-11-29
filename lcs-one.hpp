@@ -15,8 +15,8 @@ class LCSOne {
     std::vector<char> lcsString;
   public:
     LCSOne(std::string stringOne, std::string stringTwo); // parameterized contructor
-    void LCSCompute(); // executes lcs() recursive and initializesCArray
-    void LCS(int i, int j); // recursive algorithm for finding lcs
+    std::string LCSCompute(); // executes lcs() recursive and initializesCArray
+    std::string LCS(int i, int j); // recursive algorithm for finding lcs
     void initializeCArray(); // fill the carray matrix
     ~LCSOne(); // deconstructor
 
@@ -24,6 +24,7 @@ class LCSOne {
     int returncArrayIndex(int i, int j); // returns cArray value
     int getRowSize();
     int getColumnSize();
+    void printAll();
 };
 
 #endif
