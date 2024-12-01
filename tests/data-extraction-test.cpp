@@ -1,3 +1,12 @@
+/*
+ * File: data-extraction-test.cpp
+ * Description: This source file contains test cases for the DataExtraction class.
+ * 
+ * Usage: The file includes manual tests to verify the functionality of the DataExtraction class methods,
+ *        such as extracting two strings or multiple strings from a file and storing them in a vector.
+ *        It uses assertions to check the correctness of the extracted data.
+ */
+
 #include "data-extraction.hpp"
 
 #include <fstream>

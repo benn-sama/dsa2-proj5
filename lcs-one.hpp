@@ -1,3 +1,14 @@
+/*
+ * File: lcs-one.hpp
+ * Description: This header file defines the LCSOne class, which provides
+ *              methods to compute the longest common subsequence (LCS) between two strings.
+ * 
+ * Usage: The LCSOne class provides methods to compute the LCS using a iterative algorithm,
+ *        initialize the C array matrix, and access various properties for testing purposes.
+ *        It includes methods to return the value of the C array at a specific index, get the
+ *        row and column sizes, and print all relevant information.
+ */
+
 #ifndef LCS_ONE_HPP
 #define LCS_ONE_HPP
 

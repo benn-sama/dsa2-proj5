@@ -79,7 +79,7 @@ void LCSOne::initializeCArray() { // fills in the matrix corresponding to the al
   }
 }
 
-LCSOne::~LCSOne() {
+LCSOne::~LCSOne() { // deconstructor
   for (int i = 0; i < row; ++i) {
     delete[] cArray[i];
   }
@@ -92,7 +92,7 @@ LCSOne::~LCSOne() {
   cArray = nullptr;
 }
 
-int LCSOne::returncArrayIndex(int i, int j) {
+int LCSOne::returncArrayIndex(int i, int j) { // returns the specified array
   int value;
 
   try {
@@ -106,15 +106,15 @@ int LCSOne::returncArrayIndex(int i, int j) {
   return value;
 }
 
-int LCSOne::getRowSize() {
+int LCSOne::getRowSize() { // returns row size
   return row;
 }
 
-int LCSOne::getColumnSize() {
+int LCSOne::getColumnSize() { // returns column size
   return column;
 }
 
-void LCSOne::printAll() {
+void LCSOne::printAll() { // prints all values from the c array
   for (int i = 0; i < row; ++i) {
     for (int j = 0; j < column; ++j) {
       std::cout << cArray[i][j] << " ";

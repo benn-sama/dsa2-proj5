@@ -1,3 +1,12 @@
+/*
+ * File: data-extraction.hpp
+ * Description: This header file defines the DataExtraction class, which provides
+ *              methods to extract strings from files.
+ * 
+ * Usage: The DataExtraction class provides methods to extract two strings or multiple strings
+ *        from a file and store them in a vector. It also includes a method to open a file.
+ */
+
 #ifndef DATA_EXTRACTION_HPP
 #define DATA_EXTRACTION_HPP
 

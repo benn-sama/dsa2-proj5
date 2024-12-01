@@ -1,3 +1,12 @@
+/*
+ * File: lcs-one-test.cpp
+ * Description: This source file contains test cases for the LCSOne class.
+ * 
+ * Usage: The file includes manual tests to verify the functionality of the LCSOne class methods,
+ *        such as checking the row and column sizes, and ensuring the cArray is initialized correctly.
+ *        It uses assertions to check the correctness of the LCS computation.
+ */
+
 #include "lcs-one.hpp"
 
 void test1() {
