@@ -98,7 +98,7 @@ void LCSTwo::computeSimilarity(int i, int j, int lcs) { // computes the similari
     matrix[i][j] = 'L';
   } 
   else {
-    matrix[i][j] = 'N';
+    matrix[i][j] = 'D';
   }
 }
 
