@@ -9,9 +9,9 @@ LCSTwo::LCSTwo(std::vector<std::string> strings) { // parameterized constructor
 
   try {
     for (int i = 0; i < matrixRow; ++i) {
-      matrix[i] = new char[column];
+      matrix[i] = new char[matrixColumn];
 
-      for (int j = 0; j < column; ++j) {
+      for (int j = 0; j < matrixColumn; ++j) {
         matrix[i][j] = '-';
       }
     }
@@ -39,8 +39,8 @@ int LCSTwo::LCS(int i, int j) { // algorithm for finding the lcs
   int n = str2.size();
 
   // create arrays based on the size of the smaller string
-  int previousRow[n + 1];
-  int currentRow[n + 1];
+  std::vector<int> previousRow(n + 1, 0);
+  std::vector<int> currentRow(n + 1, 0);
 
   // initialize previousRow with zeros
   for (int col = 0; col <= n; ++col) {
